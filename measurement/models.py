@@ -1,8 +1,6 @@
 from django.db import models
 
 
-
-
 class Sensor(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название датчика')
     description = models.TextField(blank=True, verbose_name='Описание датчика')
@@ -27,7 +25,6 @@ class Measurement(models.Model):
     # при этом сохранив поле sensor ниже co связью "один-ко-многим"?
     sensor = models.ForeignKey(Sensor, null=True, on_delete=models.CASCADE, related_name="measurements",
                                verbose_name='Название счетчика')
-
 
     class Meta:
         verbose_name = 'Измерение'
